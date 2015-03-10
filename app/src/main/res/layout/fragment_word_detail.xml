@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="15dp"
             android:textColor="@color/black1"
             android:textSize="33sp"
@@ -28,12 +28,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/word"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="5dp"
             android:textColor="@color/black2"
             android:textSize="17sp"
             tools:text="[fis]" />
-
+        <TextView
+            android:layout_marginRight="30dp"
+            android:visibility="gone"
+            android:id="@+id/del_wordsNote"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/btn_delete_selector" />
         <TextView
             android:layout_marginRight="30dp"
             android:id="@+id/add_wordsNote"
@@ -60,7 +70,7 @@
                 android:id="@+id/meaning"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="25dp"
                 android:layout_marginRight="60dp"
                 android:layout_marginTop="10dp"
                 android:lineSpacingExtra="3dp"

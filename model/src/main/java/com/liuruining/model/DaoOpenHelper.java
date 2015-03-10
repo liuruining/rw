@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.liuruining.model.dao.DaoMaster;
 import com.liuruining.model.dao.WordDao;
+import com.liuruining.model.dao.WordLocationDao;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -58,6 +59,7 @@ public class DaoOpenHelper extends DaoMaster.OpenHelper {
         try {
             db = openDataBase(mContext);
             WordDao.createTable(db, true);
+            WordLocationDao.createTable(db, true);
         } catch (Throwable t) {
             if (this.mContext != null) {
                 super.close();

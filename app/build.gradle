@@ -15,8 +15,8 @@ android {
         applicationId "com.liuruining.rw"
         minSdkVersion 16
         targetSdkVersion 21
-        versionCode 12
-        versionName "1.2.1"
+        versionCode 13
+        versionName "1.2.2"
     }
     buildTypes {
         release {

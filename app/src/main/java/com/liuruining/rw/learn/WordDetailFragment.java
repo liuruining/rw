@@ -17,7 +17,9 @@ import com.liuruining.model.dao.Book2;
 import com.liuruining.model.dao.Book3;
 import com.liuruining.model.dao.DaoSession;
 import com.liuruining.model.dao.Word;
+import com.liuruining.model.dao.WordLocation;
 import com.liuruining.rw.R;
+import com.liuruining.rw.RwApplication;
 import com.liuruining.rw.base.BaseFragment;
 
 import java.util.ArrayList;
@@ -48,6 +50,9 @@ public class WordDetailFragment extends BaseFragment implements View.OnClickList
 
     @InjectView(R.id.next)
     private TextView mNext;
+
+    @InjectView(R.id.del_wordsNote)
+    private TextView mDelWordsNote;
 
     private int mNum;
     private boolean isFromWord = false;
@@ -96,6 +101,7 @@ public class WordDetailFragment extends BaseFragment implements View.OnClickList
 
     private void initListener() {
         mAddWordNote.setOnClickListener(this);
+        mDelWordsNote.setOnClickListener(this);
         mLast.setOnClickListener(this);
         mNext.setOnClickListener(this);
     }
@@ -240,6 +246,7 @@ public class WordDetailFragment extends BaseFragment implements View.OnClickList
             wordList = data;
             initWordView(index);
             mAddWordNote.setVisibility(View.GONE);
+            mDelWordsNote.setVisibility(View.VISIBLE);
             getActivity().getSupportLoaderManager().destroyLoader(LOAD_WORD);
         }
 
@@ -254,6 +261,7 @@ public class WordDetailFragment extends BaseFragment implements View.OnClickList
         mWord.setText(wordList.get(index).getSpelling());
         mSoundMarker.setText(wordList.get(index).getPhonetic_alphabet());
         mMeaning.setText(wordList.get(index).getMeanning());
+        getActivity().setTitle("记单词  " + (index + 1) + "/" + wordList.size());
     }
 
     private void initView1(int index) {
@@ -261,6 +269,7 @@ public class WordDetailFragment extends BaseFragment implements View.OnClickList
         mWord.setText(book1List.get(index).getSpelling());
         mSoundMarker.setText(book1List.get(index).getPhonetic_alphabet());
         mMeaning.setText(book1List.get(index).getMeanning());
+        getActivity().setTitle("记单词  " + (index + 1) + "/" + book1List.size());
     }
 
     private void initView2(int index) {
@@ -268,6 +277,7 @@ public class WordDetailFragment extends BaseFragment implements View.OnClickList
         mWord.setText(book2List.get(index).getSpelling());
         mSoundMarker.setText(book2List.get(index).getPhonetic_alphabet());
         mMeaning.setText(book2List.get(index).getMeanning());
+        getActivity().setTitle("记单词  " + (index + 1) + "/" + book2List.size());
     }
 
     private void initView3(int index) {
@@ -275,6 +285,7 @@ public class WordDetailFragment extends BaseFragment implements View.OnClickList
         mWord.setText(book3List.get(index).getSpelling());
         mSoundMarker.setText(book3List.get(index).getPhonetic_alphabet());
         mMeaning.setText(book3List.get(index).getMeanning());
+        getActivity().setTitle("记单词  " + (index + 1) + "/" + book3List.size());
     }
 
     @Override
@@ -282,6 +293,9 @@ public class WordDetailFragment extends BaseFragment implements View.OnClickList
         switch (view.getId()) {
             case R.id.add_wordsNote:
                 addToNote();
+                break;
+            case R.id.del_wordsNote:
+                deleteFromWordNote();
                 break;
             case R.id.last:
                 moveToLast();
@@ -426,4 +440,51 @@ public class WordDetailFragment extends BaseFragment implements View.OnClickList
         });
     }
 
+    private void deleteFromWordNote() {
+        final Word word = new Word();
+        word.setID(wordList.get(index).getID());
+        word.setSpelling(wordList.get(index).getSpelling());
+        word.setMeanning(wordList.get(index).getMeanning());
+        word.setPhonetic_alphabet(wordList.get(index).getPhonetic_alphabet());
+        word.setList(wordList.get(index).getList());
+        if (word.getID() != null) {
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    RoboGuice.getInjector(getActivity()).getInstance(DaoSession.class).getWordDao().delete(word);
+                    if (getActivity() != null && !getActivity().isFinishing()) {
+                        Toast.makeText(getActivity(), "已从生词本中删除 下次启动后生效", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+
+    }
+
+    @Override
+    public void onDestroy() {
+        if (!isFromWord) {
+            final WordLocation wordLocation = new WordLocation();
+            switch (mNum) {
+                case 1:
+                    wordLocation.setBook(1);
+                    break;
+                case 2:
+                    wordLocation.setBook(2);
+                    break;
+                case 3:
+                    wordLocation.setBook(3);
+                    break;
+            }
+            wordLocation.setIndex(index);
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    RoboGuice.getInjector(RwApplication.getContext()).getInstance(DaoSession.class).getWordLocationDao().deleteAll();
+                    RoboGuice.getInjector(RwApplication.getContext()).getInstance(DaoSession.class).getWordLocationDao().insertOrReplace(wordLocation);
+                }
+            });
+        }
+        super.onDestroy();
+    }
 }

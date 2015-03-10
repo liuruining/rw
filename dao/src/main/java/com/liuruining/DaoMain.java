@@ -26,6 +26,7 @@ public class DaoMain {
         createBook2(schema);
         createBook3(schema);
         createWord(schema);
+        createLastLocation(schema);
         new DaoGenerator().generateAll(schema, relativelyPath + "/model/src/main/java");
     }
 
@@ -82,6 +83,15 @@ public class DaoMain {
         book.addStringProperty("meanning");
         book.addStringProperty("phonetic_alphabet");
         book.addLongProperty("list");
+    }
+
+    private static void createLastLocation(Schema schema) {
+        Entity book = schema.addEntity("WordLocation");
+        book.implementsSerializable();
+        book.setTableName("word_location");
+        book.addLongProperty("ID").primaryKey();
+        book.addIntProperty("book");
+        book.addIntProperty("index");
     }
 
     private static int findDB_VERSION(String relativelyPath) throws IOException {
