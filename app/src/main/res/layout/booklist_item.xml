@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/bookName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/title_black"
+            android:layout_marginLeft="20dp"
+            android:layout_alignParentLeft="true"
+            android:textSize="22sp"
+            tools:text="单词红宝书第一套" />
+
+        <TextView
+            android:layout_toLeftOf="@+id/numberOfWords"
+            android:id="@+id/hint_text"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/remark_black"
+            android:layout_marginRight="10dp"
+            android:textSize="17sp"
+            tools:text="词汇量: " />
+
+        <TextView
+            android:id="@+id/numberOfWords"
+            android:layout_toLeftOf="@+id/right"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@color/remark_black"
+            tools:text="3350" />
+
+        <TextView
+            android:id="@+id/right"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/btn_check_collapse"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+</LinearLayout>

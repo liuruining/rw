@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.ActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:displayOptions">showTitle|showHome|homeAsUp</item>
+        <item name="android:background">@color/activity_background</item>
+        <item name="android:icon">@color/transparent</item>
+        <item name="android:titleTextStyle">@style/TextAppearance.ActionBar.Title</item>
+    </style>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Words" parent="@style/Theme.AppCompat.Light">
+        <item name="android:actionBarStyle">@style/Widget.ActionBar</item>
+        <item name="android:homeAsUpIndicator">@drawable/home_up_selector</item>
+    </style>
+</resources>

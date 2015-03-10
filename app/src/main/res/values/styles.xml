@@ -1,0 +1,243 @@
+<resources>
+
+    <style name="progress_bar_style_small" parent="android:style/Widget.ProgressBar.Small">
+        <item name="android:indeterminateDrawable">@drawable/progress_bar</item>
+    </style>
+
+    <style name="progress_bar_style" parent="android:style/Widget.ProgressBar">
+        <item name="android:indeterminateDrawable">@drawable/progress_bar</item>
+    </style>
+
+    <style name="progress_bar_style_horizontal" parent="android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/horizontal_progress</item>
+    </style>
+
+    <style name="progress_bar_style_inverse" parent="android:style/Widget.ProgressBar.Inverse">
+        <item name="android:indeterminateDrawable">@drawable/progress_bar</item>
+    </style>
+
+    <style name="text_black">
+        <item name="android:textColor">@drawable/default_text_color</item>
+    </style>
+
+    <style name="text_black_mid" parent="text_black">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="text_black_large" parent="text_black">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="giftcardDialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+    </style>
+
+    <style name="Widget" />
+
+    <style name="Widget.TabPageIndicator">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/vpi__tab_indicator</item>
+        <item name="android:paddingLeft">22dip</item>
+        <item name="android:paddingRight">22dip</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.TabPageIndicator</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="TextAppearance">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TextAppearance.TabPageIndicator" parent="Widget">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/tab_indicator_text</item>
+    </style>
+
+    <style name="Widget.IconPageIndicator" parent="Widget">
+        <item name="android:layout_marginLeft">6dp</item>
+        <item name="android:layout_marginRight">6dp</item>
+    </style>
+
+    <style name="TextAppearance.BlueText">
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="TextAppearance.HintText">
+        <item name="android:textColor">@color/text_hint</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="TextAppearance.HintText.Large">
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="TextAppearance.RegisterEntrance">
+        <item name="android:textColor">@color/register_entrance_text</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="TextAppearance.EditText">
+        <item name="android:textColor">@color/edit_text_default</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+    </style>
+
+    <style name="TextAppearance.EditText.Register">
+        <item name="android:layout_height">46dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:scrollbars">none</item>
+        <item name="android:drawablePadding">13dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="TextAppearance.CategoryTitle">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="TextAppearance.CategoryTitle.Disabled">
+        <item name="android:textColor">@color/text_category_disabled</item>
+    </style>
+
+    <style name="TextAppearance.CategoryDescription">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/white70p</item>
+    </style>
+
+    <style name="TextAppearance.CategoryDescription.Disabled">
+        <item name="android:textColor">@color/text_category_disabled</item>
+    </style>
+
+    <style name="Widget.ActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="displayOptions">showTitle|showHome|homeAsUp</item>
+        <item name="background">@color/actionbar_background</item>
+        <item name="icon">@color/transparent</item>
+        <item name="homeAsUpIndicator">@drawable/home_up_selector</item>
+        <item name="titleTextStyle">@style/TextAppearance.ActionBar.Title</item>
+    </style>
+
+    <style name="TextAppearance.ActionBar.Title" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/actionbar_title</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.StepHintAndTips">
+        <item name="android:textColor">@color/hint_and_tips</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="Widget.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Widget.Button.Blue">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:background">@drawable/bg_cornered_blue</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Widget.Button.Orange" parent="Widget.Button.Blue">
+        <item name="android:background">@drawable/bg_cornered_orange</item>
+    </style>
+
+    <style name="Widget.Button.White">
+        <item name="android:background">@drawable/bg_btn_option</item>
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="TextAppearance.StepPrimary">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/step_text_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:drawableLeft">@drawable/ic_step_main</item>
+    </style>
+
+    <style name="TextAppearance.StepSecondary">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">75dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/step_text_primary</item>
+    </style>
+
+    <style name="TextAppearance.StandardsSecondary">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/hint_and_tips</item>
+    </style>
+
+    <style name="Widget.DialogButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="Widget.DialogButton.Positive">
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="Widget.DialogButton.Negative">
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="Widget.Image">
+        <item name="android:layout_width">@dimen/image_size</item>
+        <item name="android:layout_height">@dimen/image_size</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="Widget.ShowTaskImage">
+        <item name="android:layout_width">@dimen/show_task_image_size</item>
+        <item name="android:layout_height">@dimen/show_task_image_size</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <color name="transparent">#00000000</color>
+
+    <style name="NoTitleBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
+    <style name="App.Welcome" parent="@style/NoTitleBar"></style>
+
+    <style name="TextLinearLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="TextAppearance.TaskInfo">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/step_text_primary</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxWidth">200dp</item>
+    </style>
+</resources>
