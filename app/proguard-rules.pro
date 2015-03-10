@@ -1,17 +1,47 @@
-# Add project specific ProGuard rules here.
-# By default, the flags in this file are appended to flags specified
-# in /Users/pedro/android-sdk-macosx/tools/proguard/proguard-android.txt
-# You can edit the include path and order by changing the proguardFiles
-# directive in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+-keepattributes Signature,SourceFile,LineNumberTable
+-ignorewarnings
+-dontwarn android.support.v4.**,**CompatHoneycomb,com.tenpay.android.**
+-optimizations !class/unboxing/enum
+-verbose
+######  add for roboguice3.0 begin ##########
+-keep class com.google.inject.**{
+    *;
+}
+-keep public class roboguice.**{
+    *;
+}
+-keep class * extends com.google.inject.Module{
+    *;
+}
+-keepclassmembers class * {
+    @javax.inject.Inject <init>(...);
+    @com.google.inject.Inject <init>(...);
+    @javax.inject.Inject <fields>;
+    @com.google.inject.Inject <fields>;
+    <init>();
+}
+######  add for roboguice3.0 end ##########
 
-# Add any project specific keep options here:
+-keep public class com.actionbarsherlock.** { *; }
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+
+-keep class com.liuruining.model.**{
+    *;
+}
+-keepnames public class * extends android.support.v4.app.Fragment
+-keep class android.support.v4.view.ViewPager.** {*;}
+-keep class * extends android.support.v4.view.ViewPager{*;}
+
+-keep class **.R$* {*;}
+
+-keepclassmembers class * {
+   public <init>(org.json.JSONObject);
+}
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keep class com.google.gson.** { *; }
+-keep class com.google.gson.JsonObject { *; }
+-keep class com.google.gson.examples.android.model.** { *; }

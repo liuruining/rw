@@ -28,8 +28,7 @@
         android:layout_centerHorizontal="true"
         android:text="@string/version"
         android:textColor="@color/white"
-        android:textSize="7sp"
-        android:textStyle="bold" />
+        android:textSize="7sp" />
 
     <TextView
         android:id="@+id/version_info"
@@ -40,7 +39,6 @@
         android:text="@string/version_info"
         android:textColor="@color/black4"
         android:layout_marginBottom="20dp"
-        android:textSize="7sp"
-        android:textStyle="bold" />
+        android:textSize="7sp" />
 
 </RelativeLayout>

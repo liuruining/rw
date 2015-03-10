@@ -5,7 +5,7 @@ android {
         liuruining {
             keyAlias 'liuruining'
             keyPassword 'liuruining'
-            storeFile file('/app/keystore/liuruining.keystore')
+            storeFile file('keystore/liuruining.keystore')
             storePassword 'liuruining'
         }
     }
@@ -20,7 +20,7 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.liuruining
         }

@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name_splash">『记』单词</string>
+    <string name="app_name_splash">LRN单词助手</string>
     <string name="app_name">记单词</string>
-    <string name="version">COPYRIGHT LIURUINING</string>
+    <string name="version">COPYRIGHT LiuRuining</string>
     <string name="version_info">ALL RIGHTS RESERVED FROM 2015</string>
     <string name="home_tab_title_learn">学习</string>
     <string name="home_tab_title_examination">测验</string>
