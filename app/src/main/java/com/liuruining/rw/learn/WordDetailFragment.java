@@ -96,6 +96,21 @@ public class WordDetailFragment extends BaseFragment implements View.OnClickList
             isFromWord = getActivity().getIntent().getBooleanExtra("word", false);
             index = getActivity().getIntent().getIntExtra("position", 0);
             getActivity().getSupportLoaderManager().initLoader(LOAD_WORD, null, wordsCallback);
+        } else if (getActivity().getIntent().hasExtra("location")) {
+            WordLocation location = (WordLocation) getActivity().getIntent().getSerializableExtra("location");
+            mNum = location.getBook();
+            switch (mNum) {
+                case 1:
+                    getActivity().getSupportLoaderManager().initLoader(LOAD_BOOK, null, wordDetailCallbacks1);
+                    break;
+                case 2:
+                    getActivity().getSupportLoaderManager().initLoader(LOAD_BOOK, null, wordDetailCallbacks2);
+                    break;
+                case 3:
+                    getActivity().getSupportLoaderManager().initLoader(LOAD_BOOK, null, wordDetailCallbacks3);
+                    break;
+            }
+            index = location.getIndex();
         }
     }
 
@@ -134,7 +149,7 @@ public class WordDetailFragment extends BaseFragment implements View.OnClickList
                 return;
             }
             book1List = data;
-            initView1(0);
+            initView1(index);
             getActivity().getSupportLoaderManager().destroyLoader(LOAD_BOOK);
         }
 
@@ -171,7 +186,7 @@ public class WordDetailFragment extends BaseFragment implements View.OnClickList
                 return;
             }
             book2List = data;
-            initView2(0);
+            initView2(index);
             getActivity().getSupportLoaderManager().destroyLoader(LOAD_BOOK);
         }
 
@@ -208,7 +223,7 @@ public class WordDetailFragment extends BaseFragment implements View.OnClickList
                 return;
             }
             book3List = data;
-            initView3(0);
+            initView3(index);
             getActivity().getSupportLoaderManager().destroyLoader(LOAD_BOOK);
         }
 
@@ -237,6 +252,7 @@ public class WordDetailFragment extends BaseFragment implements View.OnClickList
                 }
             };
         }
+
 
         @Override
         public void onLoadFinished(Loader<List<Word>> loader, List<Word> data) {
@@ -463,8 +479,26 @@ public class WordDetailFragment extends BaseFragment implements View.OnClickList
 
     @Override
     public void onDestroy() {
+        saveLocation();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onStop() {
+        saveLocation();
+        super.onStop();
+    }
+
+    @Override
+    public void onPause() {
+        saveLocation();
+        super.onPause();
+    }
+
+    private void saveLocation() {
         if (!isFromWord) {
             final WordLocation wordLocation = new WordLocation();
+            wordLocation.setID(Long.valueOf("1"));
             switch (mNum) {
                 case 1:
                     wordLocation.setBook(1);
@@ -480,11 +514,9 @@ public class WordDetailFragment extends BaseFragment implements View.OnClickList
             new Handler().post(new Runnable() {
                 @Override
                 public void run() {
-                    RoboGuice.getInjector(RwApplication.getContext()).getInstance(DaoSession.class).getWordLocationDao().deleteAll();
                     RoboGuice.getInjector(RwApplication.getContext()).getInstance(DaoSession.class).getWordLocationDao().insertOrReplace(wordLocation);
                 }
             });
         }
-        super.onDestroy();
     }
 }
